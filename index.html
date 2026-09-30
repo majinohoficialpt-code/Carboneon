@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CARBONEON // PC UPDATER</title>
+  <meta name="description" content="CARBONEON — a retro-styled PC utility concept with storage tools, performance utilities, diagnostics, and one-click setup download." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="crt-lines"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Carboneon home">
+      <span class="brand-orb">C</span>
+      <span class="brand-word">CARBON<span>EON</span></span>
+      <small>PC UTILITY // 2016 REMASTERED</small>
+    </a>
+    <nav>
+      <a href="#features">FEATURES</a>
+      <a href="#dashboard">DASHBOARD</a>
+      <a href="#download">DOWNLOAD</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow">✦ SYSTEM ONLINE // BUILD 2016.9</div>
+        <h1>MAKE YOUR PC<br><span>FEEL LIKE MAGIC.</span></h1>
+        <p class="lede">CARBONEON is a retro-futuristic PC utility concept packed with storage tools, diagnostics, performance controls and that unmistakable golden-era internet energy.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary glow" href="#download">DOWNLOAD CARBONEON <span>→</span></a>
+          <button class="btn btn-ghost" id="watchDemo">WATCH DEMO <span>▶</span></button>
+        </div>
+        <div class="badges"><span>WINDOWS</span><span>64-BIT</span><span>NO ACCOUNT</span><span>RETRO UI</span></div>
+      </div>
+
+      <div class="hero-machine" aria-label="Animated Carboneon computer dashboard">
+        <div class="monitor">
+          <div class="monitor-header"><span>CARBONEON CORE</span><span class="led">●</span></div>
+          <div class="screen">
+            <div class="screen-title">STORAGE BOOST / PERFORMANCE HUB</div>
+            <div class="meter-row"><span>DISK SPACE</span><strong id="spaceText">512 GB → 1.02 TB*</strong></div>
+            <div class="meter"><i style="width:76%"></i></div>
+            <div class="meter-row"><span>CPU READY</span><strong>94%</strong></div>
+            <div class="meter"><i style="width:94%"></i></div>
+            <div class="meter-row"><span>GPU READY</span><strong>97%</strong></div>
+            <div class="meter"><i style="width:97%"></i></div>
+            <pre id="terminal">&gt; initializing carboneon...
+&gt; loading modules............. OK
+&gt; scanning system............. OK
+&gt; nostalgia engine............ ONLINE
+&gt; awaiting operator input_</pre>
+          </div>
+        </div>
+        <div class="tower"><div class="tower-ring"></div><div class="tower-slot"></div><div class="tower-leds"><i></i><i></i><i></i></div></div>
+        <div class="desk-glow"></div>
+      </div>
+    </section>
+
+    <section class="marquee"><div>☆ CARBONEON // PC UPDATER // PERFORMANCE // STORAGE // DIAGNOSTICS // MULTI-TOOL // CARBONEON ☆</div></section>
+
+    <section id="features" class="shell section">
+      <div class="section-heading"><span>01 //</span><h2>WHAT'S INSIDE</h2><p>Big buttons. Loud graphics. Useful tools.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="icon">▣</div><h3>STORAGE MODE</h3><p>Track your free space and model an expanded capacity view. The “double TB” headline is a showcase concept, not a physical rewrite of your drive.</p><button data-tool="storage">RUN CHECK</button></article>
+        <article class="feature-card"><div class="icon">⚡</div><h3>FPS TUNER</h3><p>Launch a guided performance checklist for startup apps, background load and graphics settings.</p><button data-tool="fps">TUNE NOW</button></article>
+        <article class="feature-card"><div class="icon">◈</div><h3>PC DIAGNOSTICS</h3><p>Run a visual scan of CPU, memory, GPU, disk and network status with a chunky retro console readout.</p><button data-tool="scan">SCAN PC</button></article>
+        <article class="feature-card"><div class="icon">✦</div><h3>MULTI-TOOLS</h3><p>System info, cleanup helpers, quick links and a customization hub — all under one neon interface.</p><button data-tool="tools">OPEN HUB</button></article>
+      </div>
+    </section>
+
+    <section id="dashboard" class="shell section dashboard-section">
+      <div class="section-heading"><span>02 //</span><h2>LIVE DASHBOARD</h2><p>Click the controls and watch the machine react.</p></div>
+      <div class="dash-layout">
+        <div class="control-panel panel">
+          <div class="panel-head">CARBONEON CONTROL CENTER <span>● READY</span></div>
+          <div class="control-grid">
+            <button class="control" data-action="boost"><strong>⚡ BOOST</strong><small>performance sweep</small></button>
+            <button class="control" data-action="clean"><strong>✹ CLEAN</strong><small>temporary file pass</small></button>
+            <button class="control" data-action="scan"><strong>◉ SCAN</strong><small>system diagnostics</small></button>
+            <button class="control" data-action="retro"><strong>★ RETRO MODE</strong><small>toggle visual effects</small></button>
+          </div>
+          <div class="sliders">
+            <label>NEON INTENSITY <input id="intensity" type="range" min="30" max="100" value="85"></label>
+            <label>ANIMATION <input id="motion" type="range" min="0" max="100" value="65"></label>
+          </div>
+        </div>
+        <div class="console panel">
+          <div class="panel-head">SYSTEM CONSOLE <span id="consoleStatus">IDLE</span></div>
+          <div class="console-output" id="consoleOutput">
+            <div>[19:44:01] CARBONEON CORE boot complete.</div>
+            <div>[19:44:02] Retro interface mounted.</div>
+            <div>[19:44:03] Waiting for command...</div>
+          </div>
+          <div class="sys-stats">
+            <div><span>CPU</span><strong>8-CORE</strong></div>
+            <div><span>RAM</span><strong>16 GB</strong></div>
+            <div><span>GPU</span><strong>READY</strong></div>
+            <div><span>NET</span><strong>1 GBPS</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="download-wrap">
+      <div class="shell download-box">
+        <div>
+          <div class="eyebrow">03 // THE MAIN EVENT</div>
+          <h2>GET THE SETUP ZIP.</h2>
+          <p>Press the button to start the download from your hosted MediaFire file. Browsers intentionally do not allow a web page to silently extract and run an admin program on your PC, so the setup step stays under your control.</p>
+        </div>
+        <div class="download-action">
+          <a class="btn btn-primary huge" id="downloadBtn" href="#">DOWNLOAD ZIP <span>⇩</span></a>
+          <small id="downloadNote">MediaFire link: <em>not configured yet</em></small>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section faq">
+      <div class="section-heading"><span>04 //</span><h2>GOOD TO KNOW</h2></div>
+      <div class="faq-grid">
+        <div><strong>Does it really double my storage?</strong><p>No physical drive can be doubled by a webpage. This UI treats that as a playful “expanded capacity” feature. Real storage expansion requires additional disk space, compression, cloud storage, or similar technology.</p></div>
+        <div><strong>Can the site auto-run the ZIP as admin?</strong><p>Not safely from a normal browser session. Downloading the ZIP works; extracting and launching software as administrator requires a local, user-approved step.</p></div>
+        <div><strong>Can I use my own MediaFire file?</strong><p>Yes. Replace the placeholder URL in <code>assets/app.js</code> and the button will point to your file.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer"><span>CARBONEON © 2016–2026</span><span>MADE FOR THE THROWBACK INTERNET</span></footer>
+
+  <div class="modal" id="demoModal" aria-hidden="true">
+    <div class="modal-card"><button class="modal-close" id="closeDemo">×</button><div class="eyebrow">CARBONEON DEMO</div><h2>BOOT SEQUENCE</h2><pre id="demoText"></pre></div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
